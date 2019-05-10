@@ -33,7 +33,7 @@ EXECUTE:
 		>pytest test_lidar_scanner.py
 
 ##Additional Notes
-test_lidar_scanner.py is also provided with show_result() methood.
+test_lidar_scanner.py is also provided with show_result() method.
 This method has a test data set and hooks to call the ldar_scanner filter objects.
 
 Here is the Result show_result() method using followign test data set.

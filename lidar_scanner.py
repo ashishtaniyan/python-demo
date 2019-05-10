@@ -1,3 +1,10 @@
+"""
+Title: Range filter and Temporal median filter for LIDAR generated scans
+Created on May 9th 2019
+@author: Ashish Aniyan
+
+"""
+
 import numpy as np
 
 
@@ -27,26 +34,3 @@ class Temporal_filter:
 		self.scan_data = self.scan_data[-self.d:]
 		result_data = np.median(self.scan_data,axis = 0)
 		return result_data
-
-#Test Data Set	
-a = np.array([[0., 1., 2., 1., 3.], [1., 5., 7., 1., 3.], [2., 3., 4., 1., 0.], [3., 3., 3., 1., 3.],
-				[10., 2., 4., 0., 0.]])
-
-b = np.array([[0., 1., 2., 1., 3.], [1., 5., 7., 1., 3.], [2., 3., 4., 1., 0.], [3., 3., 3., 1., 3.],
-				[10., 2., 4., 0., 0.]])
-
-first_filter = Range_filter()
-second_filter = Temporal_filter(3)
-print("before ")
-print(a)
-print("After Range Filter")
-
-for i in a :
-	x = first_filter.update(i)
-	print(x)
-
-print("After Temporal Filter")
-for i in b :
-	y = second_filter.update(i)
-	print(y)
-
