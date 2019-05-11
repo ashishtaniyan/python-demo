@@ -9,8 +9,8 @@ import numpy as np
 
 
 class Range_filter:
-	min_range = 0
-	max_range = 0
+#	min_range = 0
+#	max_range = 0
 	def __init__(self):
 		self.min_range = 0.03
 		self.max_range = 50
