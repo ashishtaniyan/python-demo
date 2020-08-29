@@ -8,7 +8,8 @@ Created on May 9th 2019
 from lidar_scanner import *
 import pytest
 
-def test_range_filter():
+@pytest.mark.functional
+def test_range_filter_high():
 	a = [0., 1., 2., 1., 3.]
 	first_filter = Range_filter()
 		#x = first_filter.update(a)
@@ -16,7 +17,8 @@ def test_range_filter():
 	b = [0.03, 1.0, 2.0, 1.0, 3.0]
 	assert  processed_data == b, "Array did not match. "
 
-def test_range_filter_max():
+@pytest.mark.regression
+def test_range_filter_max_low():
 	a = [51, 1., 2., 1., 3.]
 	first_filter = Range_filter()
 		#x = first_filter.update(a)
@@ -24,7 +26,8 @@ def test_range_filter_max():
 	b = [50, 1.0, 2.0, 1.0, 3.0]
 	assert  processed_data == b, "Array did not match. "
 
-def test_range_filter_supermax():
+@pytest.mark.regression
+def test_range_filter_supermax_low():
 	a = [51, 1., 2., 1., 3.,3000,9999]
 	first_filter = Range_filter()
 		#x = first_filter.update(a)
@@ -32,7 +35,8 @@ def test_range_filter_supermax():
 	b = [50, 1.0, 2.0, 1.0, 3.0, 50, 50]
 	assert  processed_data == b, "Array did not match. "
 
-def test_temporal_filter_positive():
+@pytest.mark.functional
+def test_temporal_filter_positive_high():
 	a = [0., 1., 2., 1., 3.]
 	second_filter = Temporal_filter(3)
 	processed_data = second_filter.update(a)
@@ -40,7 +44,8 @@ def test_temporal_filter_positive():
 	print(processed_data)
 	assert np.all(processed_data == b), "Array did not match."
 
-def test_temporal_filter_negetive():
+@pytest.mark.regression
+def test_temporal_filter_negetive_low():
 	a = [0., 1., 2., 1., 3.]
 	second_filter = Temporal_filter(3)
 	processed_data = second_filter.update(a)
